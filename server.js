@@ -1,3 +1,4 @@
+const ip = require('ip');
 const express = require('express');
 const helmet = require('helmet');
 const app = express();
@@ -16,5 +17,5 @@ app.post('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server listening at ${app.address}:${port}`);
+  console.log(`Server listening at ${ip.address()}:${port}`);
 });
