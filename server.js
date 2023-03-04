@@ -17,7 +17,6 @@ server.use(express.urlencoded({ extended: true }));
 server.use(helmet());
 server.use('/api',router);
 
-//cluster, child process za expensive endpoint
 
 const startServer = async()=>{
   server.listen(port, () => {
