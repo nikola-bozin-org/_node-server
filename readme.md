@@ -1,7 +1,8 @@
+For expensive endpoints use child_process to create a separate process to handle request.
+
 npm i express moongose
 npm i multer - valjda za uploadovanje slika
 npm i helmet
-MORGAN???
 
 START A SERVER: node server.js 
 
