@@ -1,21 +1,28 @@
 const ip = require('ip');
 const express = require('express');
 const helmet = require('helmet');
-const app = express();
+const cors = require('cors');
+const router = require('./routes')
+const server = express();
+
+
 const port = 9876;
 
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true })); 
-app.use(helmet());
+const approvedOrigins = ['http://localhost:3000',]
+app.use(cors({
+  origin: approvedOrigins
+}));
+server.use(express.json()); 
+server.use(express.urlencoded({ extended: true })); 
+server.use(helmet());
+server.use('/api',router);
 
-app.get('/', (req, res) => {
-  res.send('Hello, GET request');
-});
+//cluster, child process za expensive endpoint
 
-app.post('/', (req, res) => {
-  res.send(`Hello, POST request. Body: ${JSON.stringify(req.body)}`);
-});
+const startServer = async()=>{
+  server.listen(port, () => {
+    console.log(`Server listening at ${ip.address()}:${port}`);
+  });
+}
 
-app.listen(port, () => {
-  console.log(`Server listening at ${ip.address()}:${port}`);
-});
+startServer();
