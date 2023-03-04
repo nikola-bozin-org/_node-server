@@ -9,7 +9,7 @@ const server = express();
 const port = 9876;
 
 const approvedOrigins = ['http://localhost:3000',]
-app.use(cors({
+server.use(cors({
   origin: approvedOrigins
 }));
 server.use(express.json()); 
