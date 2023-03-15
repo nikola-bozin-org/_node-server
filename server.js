@@ -3,7 +3,7 @@ const rateLimit = require('express-rate-limit');
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const router = require('./routes')
+const router = require('./routers/routes')
 const server = express();
 
 //2 requests every 15 minutes.
