@@ -6,7 +6,7 @@ const cors = require('cors');
 const router = require('./routers/route')
 const server = express();
 
-//2 requests every 15 minutes.
+//6 requests every 15 minutes.
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 6,
